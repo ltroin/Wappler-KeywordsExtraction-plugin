@@ -1,0 +1,41 @@
+{
+  type: 'extractkeywords',
+  module : 'extractkeywords',
+  action : 'extractkeywords',
+  groupTitle : 'NLP API',
+  groupIcon : 'fas fa-lg fa-database comp-data',
+  title : 'Extract keywords',
+  icon : 'fas fa-lg fa-table comp-data',
+  dataScheme: [
+
+    {name: 'keywords', type: 'text'}
+
+    // {name: 'key', optionName:'key',type: 'text'},
+    // {name: 'endpoint', optionName:'endpoint',type: 'text'}
+  ],
+  dataPickObject: true,
+  globalVars: {
+    '$_GET' : [
+			{name: 'key', type: 'text'},
+			{name: 'sentence', type: 'text'},
+            {name: 'endpoint', type: 'text'}
+  		   ]
+  },
+  properties : [
+    {
+      group: 'EK Properties',
+      variables: [
+        { name: 'actionName', optionName: 'name', title: 'Name', 
+          type: 'text', required: true, defaultValue: ''},
+        { name: 'actionKey', optionName: 'key', title: 'Key', 
+          type: 'text', required: true, defaultValue: '', help:"your private api key",serverDataBindings: true},
+        { name: 'actionSentence', optionName: 'sentence', title: 'Sentence',
+          type: 'text', required: true, defaultValue: '', help:"sentence you wang to extract key words",serverDataBindings: true},
+           { name: 'actionEndpoint', optionName: 'endpoint', title: 'Endpoint',
+          type: 'text', required: true, defaultValue: '', serverDataBindings: true, help:"the endpoint url"},
+
+          {name:'output', optionName:'output', title:'Output',type:'boolean',defaultValue: false }
+      ]
+    }
+  ]
+}
